@@ -12,9 +12,17 @@ const filename = args[0];
 // !!!! IMPLEMENT ME
 
 // Read file
+fs.readFile(filename, 'utf8', (err, data) => {
+	if (err) return;
+	// Set up regex
+	const expression = /(htt(p|ps)\:\/\/([\w\W][^"|']+))/g;
+	// Find matches
+	const matches = data.match(expression);
+	// Print all matches
+	matches.forEach(match => {
+		console.log(match);
+	});
+});
 
-// Set up regex
 
-// Find matches
 
-// Print all matches
